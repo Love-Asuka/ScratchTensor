@@ -1,0 +1,22 @@
+{
+  "name": "scratch-tensor-dev",
+  "version": "0.1.0",
+  "description": "ScratchTensor Core Engine with self-contained linear algebra components",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc && npm run bundle && npm run bundle:ext",
+    "bundle": "esbuild src/index.ts --bundle --format=iife --global-name=ScratchTensor --outfile=dist/scratch-tensor.js",
+    "bundle:ext": "esbuild src/scratch-extension.ts --bundle --format=iife --outfile=dist/scratch-tensor-extension.js",
+    "bundle:min": "esbuild src/scratch-extension.ts --bundle --format=iife --minify --outfile=dist/scratch-tensor-extension.min.js",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@tensorflow/tfjs": "^4.22.0",
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}
